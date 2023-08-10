@@ -1,0 +1,21 @@
+#!/bin/sh
+
+. ~/scripts/wofi/config
+
+entry=$(printf " poweroff\n  reboot\n  exit\n lock\n suspend" | wofi_dmenu "power")
+entry=$(echo $entry | cut -b5- )
+
+if [ "$entry" = "poweroff" ] || [ "$entry" = "reboot" ]; then
+    if [ "$(~/scripts/wofi/confirm "confirm")" = "yes" ]; then
+        doas $entry
+    fi
+elif [ "$entry" = "lock" ]; then
+    swaylock
+elif [ "$entry" = "suspend" ]; then
+    systemctl suspend
+elif [ "$entry" = "exit" ]; then
+    if [ "$(~/scripts/wofi/confirm "exit?")" = "yes" ]; then
+        doas killall swhkd swhks
+        wayland-logout
+    fi
+fi

@@ -1,0 +1,19 @@
+super + ctrl + {n, p, space}
+    mpc {next, prev, toggle}
+
+super + m
+    @clear && @add music && echo "music" > ~/.config/waybar/swhkd-mode
+
+mode music
+q
+    @clear && @add normal && echo "normal" > ~/.config/waybar/swhkd-mode
+volumeup
+	# amixer set Master 5%+ && ~/scripts/change-volume
+	pactl set-sink-volume @DEFAULT_SINK@ +5% && ~/scripts/change-volume
+
+volumedown
+	# amixer set Master 5%- && ~/scripts/change-volume
+	pactl set-sink-volume @DEFAULT_SINK@ -5% && ~/scripts/change-volume
+{n, p, space, r, z, y}
+    mpc {next, prev, toggle, repeat, random, single}
+endmode

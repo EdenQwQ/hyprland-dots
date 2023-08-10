@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+export PATH="$HOME/.cargo/bin:/usr/local/bin:$HOME/.local/bin:$PATH"
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export GDK_SCALE=1
+export GDK_DPI_SCALE=1
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
+SDL_IM_MODULE=fcitx
+export all_proxy="http://127.0.0.1:7890"
+export ALL_PROXY="http://127.0.0.1:7890"
+export http_proxy="http://127.0.0.1:7890"
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XAUTHORITY &
+wlsunset -l 30 -L 120 -t 3500 -T 5000 &
+swww init
+clash &
+kanshi &
+doas killall swhks swhkd
+sleep 1
+swhks &
+pkexec /usr/bin/swhkd -c $1 &
+doas killall evremap
+sleep 1
+doas evremap remap ~/.config/evremap-wl.toml &
+# killall cava-infinite workspaces.lua cava
+# cava -p ~/scripts/lemonbar/cava.conf &
+waybar &
+nm-applet --indicator &
+kdeconnect-indicator &
+blueman-applet &
+swaync &
+exec swayidle -w timeout 1800 '~/scripts/lock-blur -d' timeout 1805 'systemctl suspend' before-sleep '~/scripts/lock-blur -d'
+killall xdg-desktop-portal-hyprland
+killall xdg-desktop-portal-wlr
+killall xdg-desktop-portal-gnome
+killall xdg-desktop-portal
+/usr/libexec/xdg-desktop-portal-wlr &
+/usr/libexec/xdg-desktop-portal &
+/usr/libexec/lxqt-policykit-agent &

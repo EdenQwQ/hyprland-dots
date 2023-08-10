@@ -1,0 +1,13 @@
+include /home/eden/.config/swhkd/tofi.swhkdrc
+include /home/eden/.config/swhkd/wayshot.swhkdrc
+
+ignore print
+ignore alt+print
+ignore ctrl+print
+ignore alt+ctrl+print
+
+super + shift + n
+  swaync-client -t -sw -swb
+
+super + alt + w
+  yad --file | xargs swww img -t random

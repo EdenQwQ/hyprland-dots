@@ -1,0 +1,250 @@
+{
+  "position": "top",
+  "layer": "top",
+  "modules-left": [
+    // "custom/hyprland-workspaces",
+    "wlr/workspaces",
+    // "custom/swhkd",
+    // "custom/media",
+    "river/tags",
+    // "custom/weather",
+    // "custom/github",
+    // "custom/xbps"
+    "tray",
+    "custom/hyprland-active-window",
+  ],
+  "modules-center": [
+    // "mpd"
+    "clock",
+    // "custom/cava",
+    "memory"
+  ],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "custom/notification"
+  ],
+  // Modules configuration
+  "river/tags": {
+    "tag-labels": [
+      "",
+      "",
+      // "", 
+      "",
+      // "", 
+      // "", 
+      // "", 
+      // ""
+      ""
+    ],
+    "num-tags": 4
+  },
+  "custom/swhkd": {
+    "exec": "cat ~/.config/waybar/swhkd-mode",
+    "format": "{}",
+    "interval": 1
+  },
+  "custom/media": {
+    "exec": "playerctl metadata --format '{{ title }}'",
+    "exec-if": "playerctl status -s",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "format": "{}",
+    "max-length": 20,
+    "interval": 1
+  },
+  "custom/hyprland-workspaces": {
+    "return-type": "json",
+    "exec": "~/.config/hypr/scripts/workspaces.lua"
+  },
+  "custom/hyprland-active-window": {
+    "exec": "~/.config/hypr/scripts/hyprland-active-window",
+    "max-length": 40,
+    "interval": 1
+  },
+  "custom/xbps": {
+    "format": "{} <span color=\"#f2cdcd\"> </span>",
+    "exec": "doas xbps-install -Sun | wc -l &",
+    "interval": 3600,
+    "on-click": "kitty --class xbps,xbps -e doas xbps-install -Su"
+  },
+  "custom/github": {
+    "format": "{} unread <span color=\"#89dceb\"> </span>",
+    "return-type": "json",
+    "interval": 60,
+    "exec": "$HOME/.config/waybar/github.sh &",
+    "on-click": "xdg-open https://github.com/notifications"
+  },
+  "custom/weather": {
+    "exec": "curl 'https://wttr.in/Ningbo?format=%c%t' &",
+    "interval": 3600,
+    "on-click": "xdg-open https://wttr.in/Ningbo",
+    "max-length": 10
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "<span color=\"#fab387\">{icon}</span> {}",
+    "format-icons": {
+      "notification": "<span foreground=\"#f38ba8\"><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground=\"#f38ba8\"><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground=\"#f38ba8\"><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground=\"#f38ba8\"><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "wlr/workspaces": {
+    "format": " {icon} ",
+    // "on-click": "activate",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+      "default": "",
+      "focused": ""
+    },
+    "sort-by-number": true
+  },
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "default": "",
+      "focused": ""
+    }
+  },
+  "mpd": {
+    "format": "{stateIcon}{consumeIcon} {randomIcon}{repeatIcon}{singleIcon}{title}({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "title-len": 20,
+    "interval": 10,
+    "consume-icons": {
+      "on": " " // Icon shows only when "consume" is on
+    },
+    "random-icons": {
+      "off": "<span color='#cdd6f4'></span> ", // Icon grayed out when "random" is off
+      "on": "<span color='#cba6f7'></span> "
+    },
+    "repeat-icons": {
+      "off": "<span color='#cdd6f4'></span> ",
+      "on": "<span color='#cba6f7'></span> "
+    },
+    "single-icons": {
+      "off": "<span color='#cdd6f4'>綾</span> ",
+      "on": "<span color='#cba6f7'>綾</span> "
+    },
+    "state-icons": {
+      "paused": "契",
+      "playing": ""
+    },
+    "on-scroll-up": "mpc seek +1",
+    "on-scroll-down": "mpc seek -1",
+    "on-click": "mpc toggle",
+    "on-click-middle": "mpc prev",
+    "on-click-right": "mpc next",
+    "tooltip-format": "{artist} - {album} - {title}",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+  "custom/cava": {
+    "format": "{}",
+    "exec": "~/scripts/cava-infinite",
+    "exec-if": "playerctl status"
+  },
+  "memory": {
+    "interval": 30,
+    "format": "<span foreground='#cba6f7'> </span>{used:0.1f}G/{total:0.1f}G",
+    "on-click": "kitty --class=htop,htop -e htop"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "<span size='13000' foreground='#89B4FA'>{icon}</span> {percent}%",
+    "format-icons": [
+      "",
+      "滛"
+    ]
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "<span foreground='#cba6f7'> </span>{:%a %d %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "kitty --class=clock,clock --title=clock -o remember_window_size=no -o initial_window_width=600 -o initial_window_height=200 -e tty-clock -s -c -C 5"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "<span size='13000' foreground='#f5c2e7'>{icon}  </span>{capacity}%",
+    "format-warning": "<span size='13000' foreground='#f5c2e7'>{icon}  </span>{capacity}%",
+    "format-critical": "<span size='13000' foreground='#f38ba8'>{icon}  </span>{capacity}%",
+    "format-charging": "<span size='13000' foreground='#f5c2e7'>  </span>{capacity}%",
+    "format-plugged": "<span size='13000' foreground='#f5c2e7'>  </span>{capacity}%",
+    "format-alt": "<span size='13000' foreground='#f5c2e7'>{icon} </span>{time}",
+    "format-full": "<span size='13000' foreground='#f5c2e7'>  </span>{capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip-format": "{time}",
+    "interval": 5
+  },
+  "network": {
+    "format-wifi": "<span size='13000' foreground='#f5e0dc'>直 </span>{essid}",
+    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭</span> Disconnected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "<span size='13000' foreground='#f5e0dc'> </span>Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+    "on-click": "kitty --class nmtui,nmtui --title=nmtui -o remember_window_size=no -o initial_window_width=400 -o initial_window_height=400 -e doas nmtui"
+  },
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "<span size='13000' foreground='#f9e2af'>{icon} </span>{volume}%",
+    "format-muted": "<span size='14000' foreground='#f9e2af'>ﱝ </span>Muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        "墳",
+        ""
+      ]
+    }
+  }
+}

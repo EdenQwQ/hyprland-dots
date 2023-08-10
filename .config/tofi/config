@@ -1,0 +1,53 @@
+# Font
+# font = Fredoka medium
+font = Hug Me Tight Regular
+font-size = 10
+
+# Window Style
+horizontal = true
+anchor = top
+width = 1272
+height = 40
+margin-top = 4
+
+outline-width = 0
+border-width = 0
+corner-radius = 6
+min-input-width = 60
+result-spacing = 15
+padding-top = 10
+padding-bottom = 0
+padding-left = 10
+padding-right = 0
+
+# Text style
+prompt-text = "Can I have a"
+prompt-padding = 15
+
+background-color = #1e1e2e
+text-color = #cdd6f4
+
+prompt-color = #1e1e2e
+prompt-background = #a6e3a1
+prompt-background-padding = 2, 5
+prompt-background-corner-radius = 6
+
+input-color = #1e1e2e
+input-background = #b4befe
+input-background-padding = 2, 5
+input-background-corner-radius = 6
+
+alternate-result-color = #1e1e2e
+alternate-result-background = #f9e2af
+alternate-result-background-padding = 2, 5
+alternate-result-background-corner-radius = 6
+
+selection-color = #1e1e2e
+selection-background = #cba6f7
+selection-background-padding = 2, 5
+selection-background-corner-radius = 6
+selection-match-color = #1e1e2e
+
+clip-to-padding = false
+
+history = true

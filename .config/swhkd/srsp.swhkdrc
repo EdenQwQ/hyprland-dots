@@ -1,0 +1,8 @@
+super + e
+    srsp push -f
+
+super + shift + e
+    srsp pop -l
+
+super + alt + e
+	srsp push -s

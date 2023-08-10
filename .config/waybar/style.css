@@ -1,0 +1,196 @@
+@import "mocha.css";
+@import "animation.css";
+
+* {
+    /* all: unset; */
+    font-size: 14px;
+    /* font-family: "Comic Mono Nerd Font"; */
+  font-family: "Hug Me Tight";
+}
+
+window#waybar {
+    /* border-radius: 15px; */
+    /* color: @base04; */
+    background: transparent;
+}
+
+tooltip {
+    background: @base01;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: @base07;
+}
+
+#network,
+#clock,
+#battery,
+#pulseaudio,
+#workspaces,
+#mpd,
+#backlight,
+#memory,
+#tray,
+#custom-weather,
+#custom-github,
+#custom-xbps,
+#custom-cava,
+#custom-swhkd,
+#custom-hyprland-workspaces,
+#custom-hyprland-active-window,
+#custom-media,
+#custom-notification {
+    padding: 4px 10px;
+    background: shade(alpha(@base00, 0.9), 1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.377);
+    color: @base07;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: 1px 2px 2px #11111b;
+    border-radius: 8px;
+}
+
+#workspaces {
+  padding: 0px
+}
+
+#workspaces button {
+    padding: 0 4px;
+    color: @base04;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 8px;
+    /* transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68); */
+}
+
+#custom-media,
+#workspaces button.active,
+#workspaces button.focused {
+    color: @base00;
+    /* background: rgb(203, 166, 247); */
+    background: radial-gradient(
+        circle,
+        rgba(203, 166, 247, 1) 0%,
+        rgba(193, 168, 247, 1) 12%,
+        rgba(249, 226, 175, 1) 19%,
+        rgba(189, 169, 247, 1) 20%,
+        rgba(182, 171, 247, 1) 24%,
+        rgba(198, 255, 194, 1) 36%,
+        rgba(177, 172, 247, 1) 37%,
+        rgba(170, 173, 248, 1) 48%,
+        rgba(255, 255, 255, 1) 52%,
+        rgba(166, 174, 248, 1) 52%,
+        rgba(160, 175, 248, 1) 59%,
+        rgba(148, 226, 213, 1) 66%,
+        rgba(155, 176, 248, 1) 67%,
+        rgba(152, 177, 248, 1) 68%,
+        rgba(205, 214, 244, 1) 77%,
+        rgba(148, 178, 249, 1) 78%,
+        rgba(144, 179, 250, 1) 82%,
+        rgba(180, 190, 254, 1) 83%,
+        rgba(141, 179, 250, 1) 90%,
+        rgba(137, 180, 250, 1) 100%
+    );
+    /* background: radial-gradient(circle, @base05 0%, @base07 100%); */
+    background-size: 400% 400%;
+    animation: gradient_f 40s ease-in-out infinite;
+    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#custom-hyprland-active-window {
+  color: @base00;
+  background: radial-gradient(circle, @base05 0%, @base07 100%);
+  background-size: 400% 400%;
+  animation: gradient_f 40s ease-in-out infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#custom-hyprland-workspaces {
+    font-weight: bolder;
+}
+
+#workspaces button.urgent {
+    color: @base08;
+}
+
+#workspaces button.visible {
+    color: @base02;
+}
+
+#tags {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    background: shade(alpha(@base00, 0.8), 1);
+}
+
+#tags button {
+    padding: 0px;
+    color: @base03;
+    font-family: "Monofur Nerd Font";
+    font-size: 14px;
+}
+
+#tags button.occupied {
+    color: @base07;
+}
+
+#tags button.focused {
+    color: @base05;
+}
+
+#tags button:hover {
+    background: shade(alpha(@base02, 0.8), 1);
+    color: @base05;
+}
+
+#tags button.focused:hover {
+    color: @base07;
+}
+
+#custom-hyprland-active-window,
+#custom-media {
+  color: @base01;
+}
+
+#battery {
+    background: @base0F;
+    /* background: linear-gradient(118deg, @base07 0%, @base0F 25%, @base07 50%, @base0F 75%, @base07 100%); */
+    /* background: linear-gradient(118deg, @base07 5%, @base0F 5%, @base0F 20%, @base07 20%, @base07 40%, @base0F 40%, @base0F 60%, @base07 60%, @base07 80%, @base0F 80%, @base0F 95%, @base07 95%);  */
+    background: linear-gradient(118deg, @base0B 5%, @base0F 5%, @base0F 20%, @base0B 20%, @base0B 40%, @base0F 40%, @base0F 60%, @base0B 60%, @base0B 80%, @base0F 80%, @base0F 95%, @base0B 95%); 
+    background-size: 200% 300%;
+    animation: gradient_f_nh 4s linear infinite;
+    color: @base01;
+}
+
+#battery.charging, #battery.plugged {
+    background: linear-gradient(118deg, @base0E 5%, @base0D 5%, @base0D 20%, @base0E 20%, @base0E 40%, @base0D 40%, @base0D 60%, @base0E 60%, @base0E 80%, @base0D 80%, @base0D 95%, @base0E 95%); 
+    background-size: 200% 300%; 
+    animation: gradient_rv 4s linear infinite;
+}
+
+#battery.full {
+    background: linear-gradient(118deg, @base0E 5%, @base0D 5%, @base0D 20%, @base0E 20%, @base0E 40%, @base0D 40%, @base0D 60%, @base0E 60%, @base0E 80%, @base0D 80%, @base0D 95%, @base0E 95%); 
+    background-size: 200% 300%; 
+    animation: gradient_rv 20s linear infinite;
+}
+
+#custom-cava {
+  /* background: linear-gradient(-118deg, @base07 0%, @base06 25%, @base06 50%, @base07 75%, @base07 100%); */
+  background: linear-gradient(-118deg, @base07 0%, @base05 25%, @base05 50%, @base07 75%, @base07 100%);
+  background-size: 200% 300%;
+  animation: gradient 4s linear infinite;
+  color: #11111b
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}

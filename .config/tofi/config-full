@@ -1,0 +1,15 @@
+width = 100%
+height = 100%
+border-width = 0
+outline-width = 0
+padding-left = 35%
+padding-top = 35%
+result-spacing = 25
+num-results = 5
+# font = Comic Mono Nerd Font
+font = Hug Me Tight
+prompt-padding = 15
+background-color = #1e1e2eaa
+text-color = #cdd6f4
+prompt-color = #a6e3a1
+selection-color = #cba6f7

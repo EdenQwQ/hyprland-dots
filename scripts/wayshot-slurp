@@ -1,0 +1,5 @@
+#!/bin/sh
+
+hyprpicker -r -z &
+
+wayshot -s "$(slurp)" $@

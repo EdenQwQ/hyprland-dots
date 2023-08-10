@@ -1,0 +1,9 @@
+#!/bin/sh
+
+wall=$(yad --file)
+if [[ $wall == "" ]]; then
+  exit
+fi
+killall swaybg
+swaybg -i $wall -m fill &
+sd "swaybg -m fill -i .*" "swaybg -m fill -i $wall &" ~/.config/autostart-scripts/autostart-wayland

@@ -1,0 +1,76 @@
+super + alt + w
+  xdotool keyup super+alt+w && @enter firefox-normal && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: firefox-normal" && firefox
+
+mode firefox-normal swallow
+
+i
+  xdotool keyup i && @enter firefox-insert && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: firefox-insert"
+
+d
+  xdotool keyup d && xdotool keydown ctrl+w && xdotool keyup ctrl+w && echo "ctrl+w" > ~/.local/share/swhkd/.last-keybinding
+
+o
+  xdotool keyup o && xdotool keydown ctrl+l && xdotool keyup ctrl+l && echo "ctrl+l" > ~/.local/share/swhkd/.last-keybinding
+shift + o
+  xdotool keyup shift+o && xdotool keydown ctrl+t && xdotool keyup ctrl+t && echo "ctrl+t" > ~/.local/share/swhkd/.last-keybinding
+
+r
+  xdotool keyup r && xdotool keydown ctrl+r && xdotool keyup ctrl+r && echo "ctrl+r" > ~/.local/share/swhkd/.last-keybinding
+
+shift + j
+  xdotool keyup shift+j && xdotool keydown ctrl+Tab && xdotool keyup ctrl+Tab && echo "ctrl+Tab" > ~/.local/share/swhkd/.last-keybinding
+shift + k
+  xdotool keyup shift+k && xdotool keydown ctrl+shift+Tab && xdotool keyup ctrl+shift+Tab && echo "ctrl+shift+Tab" > ~/.local/share/swhkd/.last-keybinding
+
+shift + h
+  xdotool keyup shift+h && xdotool keydown alt+Left && xdotool keyup alt+Left && echo "alt+Left" > ~/.local/share/swhkd/.last-keybinding
+shift + l
+  xdotool keyup shift+l && xdotool keydown alt+Right && xdotool keyup alt+Right && echo "alt+Right" > ~/.local/share/swhkd/.last-keybinding
+
+h
+  xdotool keyup h && xdotool keydown Left && xdotool keyup Left && echo "Left" > ~/.local/share/swhkd/.last-keybinding
+l
+  xdotool keyup l && xdotool keydown Right && xdotool keyup Right && echo "Right" > ~/.local/share/swhkd/.last-keybinding
+k
+  xdotool keyup k && xdotool keydown Up && xdotool keyup Up && echo "Up" > ~/.local/share/swhkd/.last-keybinding
+j
+  xdotool keyup j && xdotool keydown Down && xdotool keyup Down && echo "Down" > ~/.local/share/swhkd/.last-keybinding
+g
+  xdotool keyup g && @enter firefox-g
+shift + g
+  xdotool keyup shift+g && xdotool keydown ctrl+Down && xdotool keyup ctrl+Down && echo "ctrl+Down" > ~/.local/share/swhkd/.last-keybinding
+
+/
+  xdotool keyup slash && xdotool keydown ctrl+f && xdotool keyup ctrl+f
+n
+  xdotool keyup n && xdotool keydown ctrl+g && xdotool keyup ctrl+g && echo "ctrl+g" > ~/.local/share/swhkd/.last-keybinding
+shift+n
+  xdotool keyup shift+n && xdotool keydown ctrl+shift+g && xdotool keyup ctrl+shift+g && echo "ctrl+shift+g" > ~/.local/share/swhkd/.last-keybinding
+
+.
+  cat ~/.local/share/swhkd/.last-keybinding | xargs xdotool keydown && cat ~/.local/share/swhkd/.last-keybinding | xargs xdotool keyup
+
+ctrl + c
+  @enter normal && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: normal"
+
+super + q
+  xdotool keyup super+q && killall firefox && @enter normal && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: normal"
+
+endmode
+
+mode firefox-insert
+
+escape
+  @enter firefox-normal && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: firefox-normal"
+
+endmode
+
+mode firefox-g onceoff
+
+g
+  xdotool keyup g && xdotool keydown ctrl+Up && xdotool keyup ctrl+Up
+
+escape
+  xdotool keyup escape
+
+endmode

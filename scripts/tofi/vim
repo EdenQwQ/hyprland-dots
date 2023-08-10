@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. ~/scripts/wofi/config
+
+entry=$(ls ~/.local/share/nvim/session/ | wofi_dmenu "vim")
+
+if [ $entry != '' ]; then
+    kitty --class nvim --name nvim --hold -e nvim -S ~/.local/share/nvim/session/$entry
+fi

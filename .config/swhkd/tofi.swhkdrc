@@ -1,0 +1,5 @@
+super + {shift +,} p
+  tofi-{d,}run | sh
+
+super + {x, alt + p}
+  ~/scripts/tofi/{powermenu, powerprofile}

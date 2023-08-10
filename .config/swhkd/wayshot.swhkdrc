@@ -1,0 +1,11 @@
+print
+  wayshot
+
+alt+print
+  wayshot --stdout | wl-copy
+
+ctrl+print
+  ~/scripts/wayshot-slurp
+
+alt+ctrl+print
+  ~/scripts/wayshot-slurp --stdout | wl-copy

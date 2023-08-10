@@ -1,0 +1,2 @@
+super + shift + q
+  xdotool getwindowfocus | xargs xdotool windowkill

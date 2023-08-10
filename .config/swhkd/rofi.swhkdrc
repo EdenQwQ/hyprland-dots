@@ -1,0 +1,9 @@
+# Rofi
+super + {p }
+    rofi -show {combi}
+
+super + ctrl + e
+    rofimoji
+
+super + {x, s, c, shift + ctrl + alt + l, ctrl+t, ctrl + s, ctrl + t}
+    ~/scripts/rofi/{powermenu, web, cheatsheet, lazy, vim, snippet, translate}

@@ -1,0 +1,8 @@
+super + {x}
+    ~/scripts/wofi/{powermenu}
+
+super + p
+    wofi --show drun,run
+
+super + alt + p
+    ~/scripts/wofi/powerprofile

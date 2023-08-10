@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. ~/scripts/wofi/config
+
+printf "yes\nno" | wofi_dmenu $1

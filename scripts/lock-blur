@@ -1,0 +1,6 @@
+#!/bin/sh
+
+wayshot -f /tmp/lock-blur.png
+convert /tmp/lock-blur.png -blur 0x8 /tmp/lock-blur.png
+
+exec gtklock $@

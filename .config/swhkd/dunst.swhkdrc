@@ -1,0 +1,5 @@
+super + d
+    dunstify "$(date)" -u critical -h string:x-dunst-stack-tag:time -t 3000
+
+super + b
+    ~/scripts/sys-stat

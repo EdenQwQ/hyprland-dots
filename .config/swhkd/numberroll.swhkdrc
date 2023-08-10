@@ -1,0 +1,47 @@
+mode developer
+
+0
+  xdotool keyup 0 && xdotool keydown shift+0 && xdotool keyup shift+0
+shift+0
+  xdotool keyup shift+0 && xdotool keydown 0 && xdotool keyup 0
+1
+  xdotool keyup 1 && xdotool keydown shift+1 && xdotool keyup shift+1
+shift+1
+  xdotool keyup shift+1 && xdotool keydown 1 && xdotool keyup 1
+2
+  xdotool keyup 2 && xdotool keydown shift+2 && xdotool keyup shift+2
+shift+2
+  xdotool keyup shift+2 && xdotool keydown 2 && xdotool keyup 2
+3
+  xdotool keyup 3 && xdotool keydown shift+3 && xdotool keyup shift+3
+shift+3
+  xdotool keyup shift+3 && xdotool keydown 3 && xdotool keyup 3
+4
+  xdotool keyup 4 && xdotool keydown shift+4 && xdotool keyup shift+4
+shift+4
+  xdotool keyup shift+4 && xdotool keydown 4 && xdotool keyup 4
+5
+  xdotool keyup 5 && xdotool keydown shift+5 && xdotool keyup shift+5
+shift+5
+  xdotool keyup shift+5 && xdotool keydown 5 && xdotool keyup 5
+6
+  xdotool keyup 6 && xdotool keydown shift+6 && xdotool keyup shift+6
+shift+6
+  xdotool keyup shift+6 && xdotool keydown 6 && xdotool keyup 6
+7
+  xdotool keyup 7 && xdotool keydown shift+7 && xdotool keyup shift+7
+shift+7
+  xdotool keyup shift+7 && xdotool keydown 7 && xdotool keyup 7
+8
+  xdotool keyup 8 && xdotool keydown shift+8 && xdotool keyup shift+8
+shift+8
+  xdotool keyup shift+8 && xdotool keydown 8 && xdotool keyup 8
+9
+  xdotool keyup 9 && xdotool keydown shift+9 && xdotool keyup shift+9
+shift+9
+  xdotool keyup shift+9 && xdotool keydown 9 && xdotool keyup 9
+
+super + shift + d
+  @escape && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: normal"
+
+endmode

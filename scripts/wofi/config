@@ -1,0 +1,5 @@
+#!/bin/sh
+
+wofi_dmenu() {
+    wofi --term "kitty" -i -G --prompt $1 --dmenu
+}

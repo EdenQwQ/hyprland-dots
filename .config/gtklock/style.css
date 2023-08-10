@@ -1,0 +1,12 @@
+window {
+  background-image: url("/tmp/lock-blur.png");
+  background-size: cover;
+  background-position: center;
+}
+
+#window-box {
+  padding: 64px;
+  border-radius: 20px;
+  background-size: cover;
+  background-color: rgba(30, 30, 46, 0.6);
+}

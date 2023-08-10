@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf "performance\nbalanced\npower-saver" | wofi --show dmenu | xargs doas powerprofilesctl set

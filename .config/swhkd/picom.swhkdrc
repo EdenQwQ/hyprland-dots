@@ -1,0 +1,26 @@
+super + {_, shift + } t
+  picom-trans -c -o {20, 90}
+
+super + o
+  picom-trans -c -t
+
+super + alt + o
+  @enter picom-trans && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: picom-trans"
+
+mode picom-trans
+
+shift + =
+  picom-trans -c -o +5
+
+-
+  picom-trans -c -o -5
+
+=
+  picom-trans -c -o 90
+
+q
+  xdotool keyup q && @escape && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: normal"
+escape
+  xdotool keyup escape && @escape && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: normal"
+
+endmode

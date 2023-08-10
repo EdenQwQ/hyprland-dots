@@ -1,0 +1,22 @@
+super + shift + n
+  dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: nitrogen" && nitrogen && @enter nitrogen
+
+mode nitrogen
+
+h
+  xdotool keydown Left && xdotool keyup Left
+l
+  xdotool keydown Right && xdotool keyup Right
+k
+  xdotool keydown Up && xdotool keyup Up
+j
+  xdotool keydown Down && xdotool keyup Down
+
+super + q
+  xdotool keyup Super+q && xdotool keydown Super+q && xdotool keyup Super+q && @escape && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: normal"
+escape
+  xdotool keyup escape && xdotool keydown Super+q && xdotool keyup Super+q && @escape && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: normal"
+q
+  xdotool keyup q && xdotool keydown Super+q && xdotool keyup Super+q && @escape && dunstify -h string:x-dunst-stack-tag:swhkd-mode "Mode: normal"
+
+endmode
